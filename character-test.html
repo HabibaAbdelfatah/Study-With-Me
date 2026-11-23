@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Character Test</title>
+
+    <link rel="stylesheet" href="css/character.css">
+
+    <script src="js/character.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Character Test</h1>
+
+    <div class="character-container">
+
+        <img
+            class="room-character"
+            src="images/characters/milo-sad.jpg"
+            data-happy="images/characters/milo-happy.jpg"
+            data-sad="images/characters/milo-sad.jpg"
+            alt="Milo"
+        >
+
+    </div>
+
+    <button onclick="
+        window.dispatchEvent(
+            new CustomEvent('study:state', {
+                detail: {status: 'running'}
+            })
+        )
+    ">
+        Start
+    </button>
+
+    <button onclick="
+        window.dispatchEvent(
+            new CustomEvent('study:state', {
+                detail: {status: 'paused'}
+            })
+        )
+    ">
+        Pause
+    </button>
+
+</body>
+</html>
