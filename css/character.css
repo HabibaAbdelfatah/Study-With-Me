@@ -23,6 +23,19 @@
 .room-character:hover {
     transform: scale(1.04);
 }
+/* لما التايمر يكون شغال: حركة خفيفة وإضاءة */
+.room-character.is-running {
+  animation: charHappyMove 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 14px rgba(255, 205, 90, 0.85));
+  opacity: 1;
+}
+
+/* لما التايمر يكون واقف (Pause): حركة هادية وبهتان بسيط */
+.room-character.is-paused {
+  animation: charSadMove 3.2s ease-in-out infinite;
+  filter: brightness(0.75) grayscale(25%);
+  opacity: 0.85;
+}
 
 /* Mobile responsive */
 @media (max-width: 600px) {
@@ -34,4 +47,22 @@
         width: 160px;
         height: 190px;
     }
+
+    @keyframes charHappyMove {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes charSadMove {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(3px) scale(0.97);
+  }
+}
 }

@@ -5,17 +5,20 @@ const characterImage = document.querySelector(
 
 // Change character image
 function updateCharacter(state) {
+  if (!characterImage) return;
 
-    if (!characterImage) return;
+  const happyImage = characterImage.dataset.happy;
+  const sadImage = characterImage.dataset.sad;
 
-    const happyImage = characterImage.dataset.happy;
-    const sadImage = characterImage.dataset.sad;
-
-    if (state === "running") {
-        characterImage.src = happyImage;
-    } else {
-        characterImage.src = sadImage;
-    }
+  if (state === "running") {
+    characterImage.src = happyImage;
+    characterImage.classList.add("is-running");
+    characterImage.classList.remove("is-paused");
+  } else {
+    characterImage.src = sadImage;
+    characterImage.classList.add("is-paused");
+    characterImage.classList.remove("is-running");
+  }
 }
 
 // Listen for timer events
